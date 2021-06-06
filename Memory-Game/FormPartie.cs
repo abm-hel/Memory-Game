@@ -42,6 +42,24 @@ namespace Memory_Game
             }
         }
 
+        private void demarrerTempsJeu()
+        {
+            tempsIntervalle.Start();
+            tempsIntervalle.Tick += delegate
+            {
+                tempsTour--;
+                if (tempsTour < 0)
+                {
+                    tempsIntervalle.Stop();
+                    MessageBox.Show("temps écoulé !");
+                    initialiserImages();
+                }
+
+                var secondesTemps = TimeSpan.FromSeconds(tempsTour);
+                labelTemps.Text = "00: " + tempsTour.ToString();
+            };
+        }
+
 
     }
 }
