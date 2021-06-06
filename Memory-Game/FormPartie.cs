@@ -98,7 +98,17 @@ namespace Memory_Game
             return imagesPictureBoxes[i]; 
         }
 
+        private void melangerAleatoireImages()
+        {
+            foreach(var image in imagesPictureBoxes)
+            {
+                reserverPictureBox().Tag = image;
+                reserverPictureBox().Tag = image;
+            }
+        }
 
-       
+
+
+
     }
 }
