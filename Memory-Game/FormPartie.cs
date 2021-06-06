@@ -23,5 +23,25 @@ namespace Memory_Game
         {
             InitializeComponent();
         }
+
+        private static IEnumerable<Image> imagesCartes
+        {
+            get
+            {
+                return new Image[]
+                {
+                    Properties.Resources._1,
+                    Properties.Resources._2,
+                    Properties.Resources._3,
+                    Properties.Resources._4,
+                    Properties.Resources._5,
+                    Properties.Resources._6,
+                    Properties.Resources._7,
+                    Properties.Resources._8
+                };
+            }
+        }
+
+
     }
 }
