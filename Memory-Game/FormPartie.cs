@@ -15,7 +15,7 @@ namespace Memory_Game
         bool autorisationJouer = false;
         PictureBox premierInvite;
         Random aleatoire = new Random();
-        Timer chrono = new Timer();
+        Timer cliquerChrono = new Timer();
         int tempsTour = 60;
         Timer tempsIntervalle = new Timer {Interval = 1000};
 
