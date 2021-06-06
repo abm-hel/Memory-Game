@@ -79,6 +79,14 @@ namespace Memory_Game
             tempsIntervalle.Start();
         }
 
+        private void cacherImages()
+        {
+            foreach (var image in imagesPictureBoxes)
+            {
+                image.Image = Properties.Resources.random;
+            }
+        }
+
         private PictureBox reserverPictureBox()
         {
             int i;
