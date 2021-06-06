@@ -79,6 +79,18 @@ namespace Memory_Game
             tempsIntervalle.Start();
         }
 
+        private PictureBox reserverPictureBox()
+        {
+            int i;
+            do
+            {
+                i = aleatoire.Next(0, imagesPictureBoxes.Count());
+            }
+            while (imagesPictureBoxes[i].Tag != null);
+            return imagesPictureBoxes[i]; 
+        }
+
+
        
     }
 }
