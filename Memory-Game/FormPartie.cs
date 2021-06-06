@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Memory_Game
 {
-    public partial class Form1 : Form
+    public partial class formPartie : Form
     {
-        public Form1()
+        public formPartie()
         {
             InitializeComponent();
         }
