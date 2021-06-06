@@ -42,6 +42,11 @@ namespace Memory_Game
             }
         }
 
+        private PictureBox[] imagesPictureBoxes
+        {
+            get { return Controls.OfType<PictureBox>().ToArray(); }
+        }
+
         private void demarrerTempsJeu()
         {
             tempsIntervalle.Start();
@@ -62,10 +67,10 @@ namespace Memory_Game
         
         private void initialiserImages()
         {
-            foreach (var image in images)
+            foreach (var image in imagesPictureBoxes)
             {
                 image.Tag = null;
-                image.tag.Visible = true;
+                image.Visible = true;
             }
 
             cacherImages();
@@ -74,5 +79,6 @@ namespace Memory_Game
             tempsIntervalle.Start();
         }
 
+       
     }
 }
