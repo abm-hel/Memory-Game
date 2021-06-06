@@ -59,7 +59,20 @@ namespace Memory_Game
                 labelTemps.Text = "00: " + tempsTour.ToString();
             };
         }
+        
+        private void initialiserImages()
+        {
+            foreach (var image in images)
+            {
+                image.Tag = null;
+                image.tag.Visible = true;
+            }
 
+            cacherImages();
+            melangerAleatoireImages();
+            tempsTour = 60;
+            tempsIntervalle.Start();
+        }
 
     }
 }
