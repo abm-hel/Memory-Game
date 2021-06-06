@@ -15,7 +15,7 @@ namespace Memory_Game
         bool autorisationJouer = false;
         PictureBox premierInvite;
         Random aleatoire = new Random();
-        Timer cliquerChrono = new Timer();
+        Timer Timer = new Timer();
         int tempsTour = 60;
         Timer tempsIntervalle = new Timer {Interval = 1000};
 
@@ -111,9 +111,52 @@ namespace Memory_Game
         {
             cacherImages();
             autorisationJouer = true;
-            timer.Stop();
+            Timer.Stop();
         }
 
-        
+        private void selectionnerImage_Click(object sender, EventArgs e)
+        {
+            if (!autorisationJouer) return;
+
+            var image = (PictureBox)sender;
+            
+            if (premierInvite == null)
+            {
+                premierInvite = image;
+                image.Image = (Image)image.Tag;
+                return;
+            }
+
+            image.Image = (Image)image.Tag;
+            
+            if(image.Image == premierInvite.Image && image!=premierInvite)
+            {
+                image.Visible = premierInvite.Visible = false;
+                {
+                    premierInvite = image;
+                }
+                cacherImages();
+            }
+            else
+            {
+                autorisationJouer = false;
+                Timer.Start();
+            }
+
+            premierInvite = null;
+            if(imagesPictureBoxes.Any(i=>i.Visible))
+            {
+                return;
+            }
+
+            MessageBox.Show("Vous avez fini le jeu");
+            initialiserImages();
+           
+        }
+
+        private void buttonDemarrerPartie_Click(object sender, EventArgs e)
+        {
+            autorisationJouer = true;
+        }
     }
 }

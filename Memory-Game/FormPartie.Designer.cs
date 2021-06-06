@@ -75,6 +75,7 @@ namespace Memory_Game
             this.buttonDemarrerPartie.TabIndex = 0;
             this.buttonDemarrerPartie.Text = "Démarrer la partie";
             this.buttonDemarrerPartie.UseVisualStyleBackColor = true;
+            this.buttonDemarrerPartie.Click += new System.EventHandler(this.buttonDemarrerPartie_Click);
             // 
             // labelTemps
             // 
@@ -93,6 +94,7 @@ namespace Memory_Game
             this.pictureBoxPersonnage1.Size = new System.Drawing.Size(159, 136);
             this.pictureBoxPersonnage1.TabIndex = 2;
             this.pictureBoxPersonnage1.TabStop = false;
+            this.pictureBoxPersonnage1.Click += new System.EventHandler(this.selectionnerImage_Click);
             // 
             // pictureBox1
             // 
@@ -101,6 +103,7 @@ namespace Memory_Game
             this.pictureBox1.Size = new System.Drawing.Size(159, 136);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox2
             // 
@@ -109,6 +112,7 @@ namespace Memory_Game
             this.pictureBox2.Size = new System.Drawing.Size(159, 136);
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox3
             // 
@@ -117,6 +121,7 @@ namespace Memory_Game
             this.pictureBox3.Size = new System.Drawing.Size(159, 136);
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox4
             // 
@@ -125,6 +130,7 @@ namespace Memory_Game
             this.pictureBox4.Size = new System.Drawing.Size(159, 136);
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox5
             // 
@@ -133,6 +139,7 @@ namespace Memory_Game
             this.pictureBox5.Size = new System.Drawing.Size(159, 136);
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox6
             // 
@@ -141,6 +148,7 @@ namespace Memory_Game
             this.pictureBox6.Size = new System.Drawing.Size(159, 136);
             this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox7
             // 
@@ -149,6 +157,7 @@ namespace Memory_Game
             this.pictureBox7.Size = new System.Drawing.Size(159, 136);
             this.pictureBox7.TabIndex = 8;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox8
             // 
@@ -157,6 +166,7 @@ namespace Memory_Game
             this.pictureBox8.Size = new System.Drawing.Size(159, 136);
             this.pictureBox8.TabIndex = 17;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox9
             // 
@@ -165,6 +175,7 @@ namespace Memory_Game
             this.pictureBox9.Size = new System.Drawing.Size(159, 136);
             this.pictureBox9.TabIndex = 16;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox10
             // 
@@ -173,6 +184,7 @@ namespace Memory_Game
             this.pictureBox10.Size = new System.Drawing.Size(159, 136);
             this.pictureBox10.TabIndex = 15;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox11
             // 
@@ -181,6 +193,7 @@ namespace Memory_Game
             this.pictureBox11.Size = new System.Drawing.Size(159, 136);
             this.pictureBox11.TabIndex = 14;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox12
             // 
@@ -189,6 +202,7 @@ namespace Memory_Game
             this.pictureBox12.Size = new System.Drawing.Size(159, 136);
             this.pictureBox12.TabIndex = 13;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox13
             // 
@@ -197,6 +211,7 @@ namespace Memory_Game
             this.pictureBox13.Size = new System.Drawing.Size(159, 136);
             this.pictureBox13.TabIndex = 12;
             this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox14
             // 
@@ -205,6 +220,7 @@ namespace Memory_Game
             this.pictureBox14.Size = new System.Drawing.Size(159, 136);
             this.pictureBox14.TabIndex = 11;
             this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.timer_Tick);
             // 
             // pictureBox15
             // 
@@ -213,6 +229,7 @@ namespace Memory_Game
             this.pictureBox15.Size = new System.Drawing.Size(159, 136);
             this.pictureBox15.TabIndex = 10;
             this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.timer_Tick);
             // 
             // timer
             // 
