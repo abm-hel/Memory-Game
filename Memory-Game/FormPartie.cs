@@ -107,8 +107,13 @@ namespace Memory_Game
             }
         }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            cacherImages();
+            autorisationJouer = true;
+            timer.Stop();
+        }
 
-
-
+        
     }
 }

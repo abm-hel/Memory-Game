@@ -29,6 +29,7 @@ namespace Memory_Game
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonDemarrerPartie = new System.Windows.Forms.Button();
             this.labelTemps = new System.Windows.Forms.Label();
             this.pictureBoxPersonnage1 = new System.Windows.Forms.PictureBox();
@@ -47,6 +48,7 @@ namespace Memory_Game
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPersonnage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -212,6 +214,10 @@ namespace Memory_Game
             this.pictureBox15.TabIndex = 10;
             this.pictureBox15.TabStop = false;
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // formPartie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,6 +284,7 @@ namespace Memory_Game
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
