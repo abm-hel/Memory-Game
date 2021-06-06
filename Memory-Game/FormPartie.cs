@@ -159,13 +159,9 @@ namespace Memory_Game
         private void buttonDemarrerPartie_Click(object sender, EventArgs e)
         {
             autorisationJouer = true;
-            MessageBox.Show("0");
             melangerAleatoireImages();
-            MessageBox.Show("1");
             cacherImages();
-            MessageBox.Show("2");
             demarrerTempsJeu();
-            MessageBox.Show("3");
             clickTimer.Interval = 1000;
             clickTimer.Tick += CLICKTIMER_TICK;
             buttonDemarrerPartie.Enabled = false;
