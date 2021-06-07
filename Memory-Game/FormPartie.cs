@@ -313,8 +313,16 @@ namespace Memory_Game
 
             
             MessageBox.Show(recupPartie.nomJoueur1+"\n"+recupPartie.nomJoueur1+"\n"+recupPartie.scoreJoueur1 + "\n" +recupPartie.tempsTour.ToString());
-            pictureBoxPersonnage1.Image = recupPartie.imagesRecup[0];
-            pictureBoxPersonnage1.Visible = true;
+            
+            foreach(PictureBox pic in imagesPictureBoxes)
+            {
+                foreach(PictureBoxDonnees p in recupPartie.pictureBoxesDonnees)
+                if(pic.Name == p.nom)
+                {
+                        pic.Image = p.image;
+                        pic.Visible = true;
+                }
+            }
             
           
 
@@ -329,13 +337,19 @@ namespace Memory_Game
             sauvegarde.scoreJoueur1 = scoreJoueur1;
             sauvegarde.scoreJoueur2 = scoreJoueur2;
             sauvegarde.identification = identificationJoueur;
-            List<Image> imagesSauvegarder = new List<Image>();
+            List<PictureBoxDonnees> imagesSauvegarder = new List<PictureBoxDonnees>();
+            PictureBoxDonnees picB = new PictureBoxDonnees();
+            picB.nom = pictureBoxPersonnage1.Name;
+            //Image img = pictureBoxPersonnage1.Image;
+            picB.image = (Image)pictureBoxPersonnage1.Image.Tag;
             //Image img = imagesPictureBoxes[0].Image;
+            //(Image)pictureBoxPersonnage1.Tag
+            
            
-            imagesSauvegarder.Add((Image)pictureBoxPersonnage1.Tag);
-                
-           
-            sauvegarde.imagesRecup=imagesSauvegarder;
+            imagesSauvegarder.Add(picB);
+            sauvegarde.pictureBoxesDonnees = imagesSauvegarder;
+
+
             Sauvegarde.Sauve(nomFichierSauvegarde, sauvegarde);
             
 

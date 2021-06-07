@@ -15,7 +15,7 @@ namespace Memory_Game
         string Trouve1, Trouve2, NomJoueur1, NomJoueur2;
         int ScoreJoueur1, ScoreJoueur2, TempsTour;
         bool Identification;
-        List<Image> ImagesPictureBoxes;
+        List<PictureBoxDonnees> PicsBoxesDonnees;
 
 
 
@@ -70,10 +70,10 @@ namespace Memory_Game
             set { Identification = value; }
         }
 
-       public List<Image> imagesRecup
+       public List<PictureBoxDonnees> pictureBoxesDonnees
         {
-            get { return ImagesPictureBoxes; }
-            set { ImagesPictureBoxes = value; }
+            get { return PicsBoxesDonnees; }
+            set { PicsBoxesDonnees = value; }
         }
 
 

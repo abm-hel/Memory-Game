@@ -53,6 +53,7 @@
       <DependentUpon>FormPartie.cs</DependentUpon>
     </Compile>
     <Compile Include="DonneesSauvegarde.cs" />
+    <Compile Include="PictureBoxDonnees.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sauvegarde.cs" />
