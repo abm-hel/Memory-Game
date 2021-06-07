@@ -62,6 +62,8 @@ namespace Memory_Game
             {
                 picturebox.Visible = false;
             }
+            var secondesTemps = TimeSpan.FromSeconds(tempsTour);
+            labelTemps.Text=secondesTemps.ToString();
         }
 
 
