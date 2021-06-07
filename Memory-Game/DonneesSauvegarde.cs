@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,10 @@ namespace Memory_Game
     [SerializableAttribute]
     public class DonneesSauvegarde
     {
-        string Trouve1, Trouve2;
+        string Trouve1, Trouve2, NomJoueur1, NomJoueur2;
         int ScoreJoueur1, ScoreJoueur2, TempsTour;
         bool Identification;
-        PictureBox[] ImagesPictureBoxes;
+        List<Image> ImagesPictureBoxes;
 
 
 
@@ -44,7 +45,19 @@ namespace Memory_Game
             set { ScoreJoueur2 = value; }
         }
 
-        
+        public string nomJoueur1
+        {
+            get { return NomJoueur1; }
+            set { NomJoueur1 = value; }
+        }
+
+        public string nomJoueur2
+        {
+            get { return NomJoueur2; }
+            set { NomJoueur2 = value; }
+        }
+
+
         public int tempsTour
         {
             get { return TempsTour; }
@@ -57,7 +70,7 @@ namespace Memory_Game
             set { Identification = value; }
         }
 
-        public PictureBox[] imagesPictureBoxes
+       public List<Image> imagesRecup
         {
             get { return ImagesPictureBoxes; }
             set { ImagesPictureBoxes = value; }

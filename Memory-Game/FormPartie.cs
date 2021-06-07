@@ -21,6 +21,7 @@ namespace Memory_Game
         Timer timer = new Timer {Interval = 1000};
         int scoreJoueur1, scoreJoueur2 = 0;
         bool identificationJoueur = false;
+        string nomFichierSauvegarde = "fSauvegarde";
 
         private PictureBox[] imagesPictureBoxes
         {
@@ -235,15 +236,7 @@ namespace Memory_Game
            
         }
 
-        private void buttonReprendrePartie_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSauvegarderPartie_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         void finPartie()
         {
@@ -311,6 +304,41 @@ namespace Memory_Game
             labelJoueur2.Visible = false;
             textBoxJoueur1.Visible = false;
             textBoxJoueur2.Visible = false;
+        }
+
+        private void buttonReprendrePartie_Click(object sender, EventArgs e)
+        {
+            Object ss = Sauvegarde.Recup(nomFichierSauvegarde);
+            DonneesSauvegarde recupPartie = (DonneesSauvegarde)ss;
+
+            
+            MessageBox.Show(recupPartie.nomJoueur1+"\n"+recupPartie.nomJoueur1+"\n"+recupPartie.scoreJoueur1 + "\n" +recupPartie.tempsTour.ToString());
+            pictureBoxPersonnage1.Image = recupPartie.imagesRecup[0];
+            pictureBoxPersonnage1.Visible = true;
+            
+          
+
+            
+        }
+
+        private void buttonSauvegarderPartie_Click(object sender, EventArgs e)
+        {
+            DonneesSauvegarde sauvegarde = new DonneesSauvegarde();
+            sauvegarde.nomJoueur1 = textBoxJoueur1.Text;
+            sauvegarde.nomJoueur2 = textBoxJoueur2.Text;
+            sauvegarde.scoreJoueur1 = scoreJoueur1;
+            sauvegarde.scoreJoueur2 = scoreJoueur2;
+            sauvegarde.identification = identificationJoueur;
+            List<Image> imagesSauvegarder = new List<Image>();
+            //Image img = imagesPictureBoxes[0].Image;
+           
+            imagesSauvegarder.Add((Image)pictureBoxPersonnage1.Tag);
+                
+           
+            sauvegarde.imagesRecup=imagesSauvegarder;
+            Sauvegarde.Sauve(nomFichierSauvegarde, sauvegarde);
+            
+
         }
     }
 }
