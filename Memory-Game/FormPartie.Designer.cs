@@ -54,6 +54,7 @@ namespace Memory_Game
             this.pictureBoxPersonnage2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPersonnage5 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPersonnage1 = new System.Windows.Forms.PictureBox();
+            this.buttonReprendrePartie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPersonnnage16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPersonnage15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPersonnage12)).BeginInit();
@@ -173,7 +174,7 @@ namespace Memory_Game
             this.buttonDemarrerPartie.Name = "buttonDemarrerPartie";
             this.buttonDemarrerPartie.Size = new System.Drawing.Size(342, 39);
             this.buttonDemarrerPartie.TabIndex = 113;
-            this.buttonDemarrerPartie.Text = "Confirmer";
+            this.buttonDemarrerPartie.Text = "Commencer";
             this.buttonDemarrerPartie.UseVisualStyleBackColor = false;
             this.buttonDemarrerPartie.Click += new System.EventHandler(this.buttonDemarrerPartie_Click);
             // 
@@ -353,12 +354,29 @@ namespace Memory_Game
             this.pictureBoxPersonnage1.TabStop = false;
             this.pictureBoxPersonnage1.Click += new System.EventHandler(this.selectionnerImage_Click);
             // 
+            // buttonReprendrePartie
+            // 
+            this.buttonReprendrePartie.BackColor = System.Drawing.Color.OrangeRed;
+            this.buttonReprendrePartie.FlatAppearance.BorderSize = 0;
+            this.buttonReprendrePartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReprendrePartie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReprendrePartie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonReprendrePartie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonReprendrePartie.Location = new System.Drawing.Point(235, 953);
+            this.buttonReprendrePartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonReprendrePartie.Name = "buttonReprendrePartie";
+            this.buttonReprendrePartie.Size = new System.Drawing.Size(342, 39);
+            this.buttonReprendrePartie.TabIndex = 114;
+            this.buttonReprendrePartie.Text = "Reprendre";
+            this.buttonReprendrePartie.UseVisualStyleBackColor = false;
+            // 
             // formPartie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(793, 1003);
+            this.Controls.Add(this.buttonReprendrePartie);
             this.Controls.Add(this.buttonDemarrerPartie);
             this.Controls.Add(this.labelJoueur2);
             this.Controls.Add(this.textBoxJoueur2);
@@ -437,6 +455,7 @@ namespace Memory_Game
         private System.Windows.Forms.Label labelJoueur2;
         private System.Windows.Forms.TextBox textBoxJoueur2;
         private System.Windows.Forms.Button buttonDemarrerPartie;
+        private System.Windows.Forms.Button buttonReprendrePartie;
     }
 }
 
