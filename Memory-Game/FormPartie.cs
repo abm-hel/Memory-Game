@@ -15,8 +15,8 @@ namespace Memory_Game
         bool autorisationJouer = false;
         PictureBox premierChoix;
         Random aleatoire = new Random();
-        Timer clickTimer = new Timer();
-        int tempsTour = 60;
+        Timer tour = new Timer();
+        int tempsTour = 90;
         Timer timer = new Timer {Interval = 1000};
 
         public formPartie()
@@ -76,7 +76,7 @@ namespace Memory_Game
 
             cacherImages();
             melangerAleatoireImages();
-            tempsTour = 60;
+            tempsTour = 90;
             timer.Start();
         }
 
@@ -101,8 +101,7 @@ namespace Memory_Game
         }
 
         private void melangerAleatoireImages()
-        {
-            foreach(var image in imagesCartes)
+        {            foreach(var image in imagesCartes)
             {
                 reserverPictureBox().Tag = image;
                 reserverPictureBox().Tag = image;
@@ -113,12 +112,13 @@ namespace Memory_Game
         {
             cacherImages();
             autorisationJouer = true;
-            clickTimer.Stop();
+            tour.Stop();
         }
 
         private void selectionnerImage_Click(object sender, EventArgs e)
         {
-            if (!autorisationJouer) return;
+            if (!autorisationJouer) 
+                return;
 
             var image = (PictureBox)sender;
             
@@ -131,29 +131,39 @@ namespace Memory_Game
 
             image.Image = (Image)image.Tag;
             
-            if(image.Image == premierChoix.Image && image!=premierChoix)
+
+
+
+            if (image.Image == premierChoix.Image && image!=premierChoix)
             {
                 image.Visible = premierChoix.Visible = false;
-                {
-                    premierChoix = image;
-                }
-                cacherImages();
+                premierChoix = image;
             }
-            else
+            
+             
+            else 
             {
                 autorisationJouer = false;
-                clickTimer.Start();
+                tour.Start();
             }
 
             premierChoix = null;
+
             if(imagesPictureBoxes.Any(i=>i.Visible))
             {
                 return;
             }
 
-            MessageBox.Show("Vous avez fini le jeu");
-            initialiserImages();
-           
+            DialogResult reponseRecommencer = MessageBox.Show("Voullez-vous recommencez?", "Partie terminée",MessageBoxButtons.YesNo);
+            if (DialogResult == DialogResult.Yes)
+            {
+                initialiserImages();
+            }
+
+            else
+            {
+                this.Close();
+            }
         }
 
         private void buttonDemarrerPartie_Click(object sender, EventArgs e)
@@ -162,8 +172,8 @@ namespace Memory_Game
             melangerAleatoireImages();
             cacherImages();
             demarrerTempsJeu();
-            clickTimer.Interval = 1000;
-            clickTimer.Tick += CLICKTIMER_TICK;
+            tour.Interval = 1000;
+            tour.Tick += CLICKTIMER_TICK;
             buttonDemarrerPartie.Enabled = false;
         }
     }
