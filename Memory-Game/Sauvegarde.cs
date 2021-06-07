@@ -10,7 +10,7 @@ namespace Memory_Game
 {
     public class Sauvegarde
     {
-        public static void Sauve(string fichier, Object objet)
+        public  void Sauve(string fichier, Object objet)
         {
             if (File.Exists(fichier))
             {
@@ -22,7 +22,7 @@ namespace Memory_Game
             flux.Close();
         }
 
-        public static Object Recup(string fichier)
+        public Object Recup(string fichier)
         {
             
             if (File.Exists(fichier))
