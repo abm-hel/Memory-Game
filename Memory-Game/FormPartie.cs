@@ -317,15 +317,49 @@ namespace Memory_Game
                 foreach(PictureBoxDonnees p in recupPartie.pictureBoxesDonnees)
                 if(pic.Name == p.nom)
                 {
-                        pic.Image = p.image;
+                        pic.Tag = p.image;
                         pic.Visible = true;
                 }
             }
-            
-          
+
+            labelScoreJoueur1.Visible = true;
+            labelScoreJoueur2.Visible = true;
+            labelTour.Visible = true;
+            labelTemps.Visible = true;
+
+            labelJoueur1.Visible = false;
+            labelJoueur2.Visible = false;
+            textBoxJoueur1.Visible = false;
+            textBoxJoueur2.Visible = false;
+
+            buttonDemarrerPartie.Visible = false;
+            buttonReprendrePartie.Visible = false;
+            buttonSauvegarderPartie.Visible = true;
+
+            textBoxJoueur1.Text = recupPartie.nomJoueur1.ToString();
+            textBoxJoueur2.Text = recupPartie.nomJoueur2.ToString();
+
+            labelScoreJoueur1.Text = textBoxJoueur1.Text + " : " + recupPartie.scoreJoueur1.ToString();
+            labelScoreJoueur2.Text = textBoxJoueur2.Text + " : " + recupPartie.scoreJoueur2.ToString();
 
             
+            var secondesTemps = TimeSpan.FromSeconds(recupPartie.tempsTour);
+            labelTemps.Text = secondesTemps.ToString();
+
+            if(recupPartie.identification == false)
+            {
+                labelTour.Text = textBoxJoueur1.Text;
+            }
+            else
+            {
+                labelTour.Text = textBoxJoueur2.Text;
+            }
+
+
+            tempsTour = recupPartie.tempsTour;
+            cacherImages();
         }
+
 
         private void buttonSauvegarderPartie_Click(object sender, EventArgs e)
         {
@@ -349,6 +383,7 @@ namespace Memory_Game
             sauvegarde.scoreJoueur1 = scoreJoueur1;
             sauvegarde.scoreJoueur2 = scoreJoueur2;
             sauvegarde.identification = identificationJoueur;
+            sauvegarde.tempsTour = tempsTour;
             sauvegarde.pictureBoxesDonnees = imagesSauvegarder;
 
 
