@@ -332,21 +332,19 @@ namespace Memory_Game
         private void buttonSauvegarderPartie_Click(object sender, EventArgs e)
         {
             DonneesSauvegarde sauvegarde = new DonneesSauvegarde();
+            List<PictureBoxDonnees> imagesSauvegarder = new List<PictureBoxDonnees>();
+            PictureBoxDonnees picB = new PictureBoxDonnees();
+            picB.nom = pictureBoxPersonnage1.Name;
+            
+            picB.image = (Image)pictureBoxPersonnage1.Tag;
+            
+            imagesSauvegarder.Add(picB);
+
             sauvegarde.nomJoueur1 = textBoxJoueur1.Text;
             sauvegarde.nomJoueur2 = textBoxJoueur2.Text;
             sauvegarde.scoreJoueur1 = scoreJoueur1;
             sauvegarde.scoreJoueur2 = scoreJoueur2;
             sauvegarde.identification = identificationJoueur;
-            List<PictureBoxDonnees> imagesSauvegarder = new List<PictureBoxDonnees>();
-            PictureBoxDonnees picB = new PictureBoxDonnees();
-            picB.nom = pictureBoxPersonnage1.Name;
-            //Image img = pictureBoxPersonnage1.Image;
-            picB.image = (Image)pictureBoxPersonnage1.Image.Tag;
-            //Image img = imagesPictureBoxes[0].Image;
-            //(Image)pictureBoxPersonnage1.Tag
-            
-           
-            imagesSauvegarder.Add(picB);
             sauvegarde.pictureBoxesDonnees = imagesSauvegarder;
 
 

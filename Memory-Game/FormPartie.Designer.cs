@@ -422,7 +422,6 @@ namespace Memory_Game
             this.Controls.Add(this.pictureBoxPersonnage5);
             this.Controls.Add(this.pictureBoxPersonnage1);
             this.Controls.Add(this.labelTemps);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formPartie";
