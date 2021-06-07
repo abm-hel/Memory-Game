@@ -55,6 +55,7 @@ namespace Memory_Game
             this.pictureBoxPersonnage5 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPersonnage1 = new System.Windows.Forms.PictureBox();
             this.buttonReprendrePartie = new System.Windows.Forms.Button();
+            this.buttonSauvegarderPartie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPersonnnage16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPersonnage15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPersonnage12)).BeginInit();
@@ -78,7 +79,7 @@ namespace Memory_Game
             this.labelTemps.AutoSize = true;
             this.labelTemps.Font = new System.Drawing.Font("Abduction2002", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTemps.ForeColor = System.Drawing.Color.White;
-            this.labelTemps.Location = new System.Drawing.Point(75, 50);
+            this.labelTemps.Location = new System.Drawing.Point(75, 35);
             this.labelTemps.Name = "labelTemps";
             this.labelTemps.Size = new System.Drawing.Size(64, 22);
             this.labelTemps.TabIndex = 1;
@@ -89,7 +90,7 @@ namespace Memory_Game
             this.labelScoreJoueur1.AutoSize = true;
             this.labelScoreJoueur1.Font = new System.Drawing.Font("Abduction2002", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScoreJoueur1.ForeColor = System.Drawing.Color.White;
-            this.labelScoreJoueur1.Location = new System.Drawing.Point(590, 24);
+            this.labelScoreJoueur1.Location = new System.Drawing.Point(542, 9);
             this.labelScoreJoueur1.Name = "labelScoreJoueur1";
             this.labelScoreJoueur1.Size = new System.Drawing.Size(159, 16);
             this.labelScoreJoueur1.TabIndex = 18;
@@ -100,7 +101,7 @@ namespace Memory_Game
             this.labelScoreJoueur2.AutoSize = true;
             this.labelScoreJoueur2.Font = new System.Drawing.Font("Abduction2002", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelScoreJoueur2.ForeColor = System.Drawing.Color.White;
-            this.labelScoreJoueur2.Location = new System.Drawing.Point(590, 50);
+            this.labelScoreJoueur2.Location = new System.Drawing.Point(542, 35);
             this.labelScoreJoueur2.Name = "labelScoreJoueur2";
             this.labelScoreJoueur2.Size = new System.Drawing.Size(161, 16);
             this.labelScoreJoueur2.TabIndex = 19;
@@ -111,7 +112,7 @@ namespace Memory_Game
             this.labelTour.AutoSize = true;
             this.labelTour.Font = new System.Drawing.Font("Abduction2002", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTour.ForeColor = System.Drawing.Color.OrangeRed;
-            this.labelTour.Location = new System.Drawing.Point(76, 24);
+            this.labelTour.Location = new System.Drawing.Point(76, 9);
             this.labelTour.Name = "labelTour";
             this.labelTour.Size = new System.Drawing.Size(89, 16);
             this.labelTour.TabIndex = 20;
@@ -122,7 +123,7 @@ namespace Memory_Game
             this.textBoxJoueur1.BackColor = System.Drawing.Color.Black;
             this.textBoxJoueur1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxJoueur1.ForeColor = System.Drawing.Color.White;
-            this.textBoxJoueur1.Location = new System.Drawing.Point(235, 852);
+            this.textBoxJoueur1.Location = new System.Drawing.Point(226, 809);
             this.textBoxJoueur1.Name = "textBoxJoueur1";
             this.textBoxJoueur1.Size = new System.Drawing.Size(149, 23);
             this.textBoxJoueur1.TabIndex = 21;
@@ -133,7 +134,7 @@ namespace Memory_Game
             this.labelJoueur1.AutoSize = true;
             this.labelJoueur1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJoueur1.ForeColor = System.Drawing.Color.White;
-            this.labelJoueur1.Location = new System.Drawing.Point(232, 832);
+            this.labelJoueur1.Location = new System.Drawing.Point(223, 789);
             this.labelJoueur1.Name = "labelJoueur1";
             this.labelJoueur1.Size = new System.Drawing.Size(122, 19);
             this.labelJoueur1.TabIndex = 23;
@@ -144,7 +145,7 @@ namespace Memory_Game
             this.labelJoueur2.AutoSize = true;
             this.labelJoueur2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelJoueur2.ForeColor = System.Drawing.Color.White;
-            this.labelJoueur2.Location = new System.Drawing.Point(425, 832);
+            this.labelJoueur2.Location = new System.Drawing.Point(416, 789);
             this.labelJoueur2.Name = "labelJoueur2";
             this.labelJoueur2.Size = new System.Drawing.Size(122, 19);
             this.labelJoueur2.TabIndex = 25;
@@ -155,7 +156,7 @@ namespace Memory_Game
             this.textBoxJoueur2.BackColor = System.Drawing.Color.Black;
             this.textBoxJoueur2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxJoueur2.ForeColor = System.Drawing.Color.White;
-            this.textBoxJoueur2.Location = new System.Drawing.Point(428, 852);
+            this.textBoxJoueur2.Location = new System.Drawing.Point(419, 809);
             this.textBoxJoueur2.Name = "textBoxJoueur2";
             this.textBoxJoueur2.Size = new System.Drawing.Size(149, 23);
             this.textBoxJoueur2.TabIndex = 24;
@@ -169,10 +170,10 @@ namespace Memory_Game
             this.buttonDemarrerPartie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDemarrerPartie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonDemarrerPartie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDemarrerPartie.Location = new System.Drawing.Point(235, 894);
+            this.buttonDemarrerPartie.Location = new System.Drawing.Point(226, 842);
             this.buttonDemarrerPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDemarrerPartie.Name = "buttonDemarrerPartie";
-            this.buttonDemarrerPartie.Size = new System.Drawing.Size(342, 39);
+            this.buttonDemarrerPartie.Size = new System.Drawing.Size(342, 36);
             this.buttonDemarrerPartie.TabIndex = 113;
             this.buttonDemarrerPartie.Text = "Commencer";
             this.buttonDemarrerPartie.UseVisualStyleBackColor = false;
@@ -181,9 +182,9 @@ namespace Memory_Game
             // pictureBoxPersonnnage16
             // 
             this.pictureBoxPersonnnage16.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnnage16.Location = new System.Drawing.Point(574, 649);
+            this.pictureBoxPersonnnage16.Location = new System.Drawing.Point(572, 616);
             this.pictureBoxPersonnnage16.Name = "pictureBoxPersonnnage16";
-            this.pictureBoxPersonnnage16.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnnage16.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnnage16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnnage16.TabIndex = 17;
             this.pictureBoxPersonnnage16.TabStop = false;
@@ -192,9 +193,9 @@ namespace Memory_Game
             // pictureBoxPersonnage15
             // 
             this.pictureBoxPersonnage15.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage15.Location = new System.Drawing.Point(409, 649);
+            this.pictureBoxPersonnage15.Location = new System.Drawing.Point(407, 616);
             this.pictureBoxPersonnage15.Name = "pictureBoxPersonnage15";
-            this.pictureBoxPersonnage15.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage15.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage15.TabIndex = 16;
             this.pictureBoxPersonnage15.TabStop = false;
@@ -203,9 +204,9 @@ namespace Memory_Game
             // pictureBoxPersonnage12
             // 
             this.pictureBoxPersonnage12.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage12.Location = new System.Drawing.Point(574, 469);
+            this.pictureBoxPersonnage12.Location = new System.Drawing.Point(572, 436);
             this.pictureBoxPersonnage12.Name = "pictureBoxPersonnage12";
-            this.pictureBoxPersonnage12.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage12.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage12.TabIndex = 15;
             this.pictureBoxPersonnage12.TabStop = false;
@@ -214,9 +215,9 @@ namespace Memory_Game
             // pictureBoxPersonnage11
             // 
             this.pictureBoxPersonnage11.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage11.Location = new System.Drawing.Point(409, 469);
+            this.pictureBoxPersonnage11.Location = new System.Drawing.Point(407, 436);
             this.pictureBoxPersonnage11.Name = "pictureBoxPersonnage11";
-            this.pictureBoxPersonnage11.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage11.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage11.TabIndex = 14;
             this.pictureBoxPersonnage11.TabStop = false;
@@ -225,9 +226,9 @@ namespace Memory_Game
             // pictureBoxPersonnage8
             // 
             this.pictureBoxPersonnage8.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage8.Location = new System.Drawing.Point(574, 289);
+            this.pictureBoxPersonnage8.Location = new System.Drawing.Point(572, 256);
             this.pictureBoxPersonnage8.Name = "pictureBoxPersonnage8";
-            this.pictureBoxPersonnage8.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage8.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage8.TabIndex = 13;
             this.pictureBoxPersonnage8.TabStop = false;
@@ -236,9 +237,9 @@ namespace Memory_Game
             // pictureBoxPersonnage4
             // 
             this.pictureBoxPersonnage4.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage4.Location = new System.Drawing.Point(574, 109);
+            this.pictureBoxPersonnage4.Location = new System.Drawing.Point(572, 76);
             this.pictureBoxPersonnage4.Name = "pictureBoxPersonnage4";
-            this.pictureBoxPersonnage4.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage4.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage4.TabIndex = 12;
             this.pictureBoxPersonnage4.TabStop = false;
@@ -247,9 +248,9 @@ namespace Memory_Game
             // pictureBoxPersonnage7
             // 
             this.pictureBoxPersonnage7.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage7.Location = new System.Drawing.Point(409, 289);
+            this.pictureBoxPersonnage7.Location = new System.Drawing.Point(407, 256);
             this.pictureBoxPersonnage7.Name = "pictureBoxPersonnage7";
-            this.pictureBoxPersonnage7.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage7.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage7.TabIndex = 11;
             this.pictureBoxPersonnage7.TabStop = false;
@@ -258,9 +259,9 @@ namespace Memory_Game
             // pictureBoxPersonnage3
             // 
             this.pictureBoxPersonnage3.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage3.Location = new System.Drawing.Point(409, 109);
+            this.pictureBoxPersonnage3.Location = new System.Drawing.Point(407, 76);
             this.pictureBoxPersonnage3.Name = "pictureBoxPersonnage3";
-            this.pictureBoxPersonnage3.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage3.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage3.TabIndex = 10;
             this.pictureBoxPersonnage3.TabStop = false;
@@ -269,9 +270,9 @@ namespace Memory_Game
             // pictureBoxPersonnage14
             // 
             this.pictureBoxPersonnage14.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage14.Location = new System.Drawing.Point(244, 649);
+            this.pictureBoxPersonnage14.Location = new System.Drawing.Point(242, 616);
             this.pictureBoxPersonnage14.Name = "pictureBoxPersonnage14";
-            this.pictureBoxPersonnage14.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage14.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage14.TabIndex = 9;
             this.pictureBoxPersonnage14.TabStop = false;
@@ -280,9 +281,9 @@ namespace Memory_Game
             // pictureBoxPersonnage13
             // 
             this.pictureBoxPersonnage13.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage13.Location = new System.Drawing.Point(79, 649);
+            this.pictureBoxPersonnage13.Location = new System.Drawing.Point(77, 616);
             this.pictureBoxPersonnage13.Name = "pictureBoxPersonnage13";
-            this.pictureBoxPersonnage13.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage13.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage13.TabIndex = 8;
             this.pictureBoxPersonnage13.TabStop = false;
@@ -291,9 +292,9 @@ namespace Memory_Game
             // pictureBoxPersonnage10
             // 
             this.pictureBoxPersonnage10.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage10.Location = new System.Drawing.Point(244, 469);
+            this.pictureBoxPersonnage10.Location = new System.Drawing.Point(242, 436);
             this.pictureBoxPersonnage10.Name = "pictureBoxPersonnage10";
-            this.pictureBoxPersonnage10.Size = new System.Drawing.Size(159, 175);
+            this.pictureBoxPersonnage10.Size = new System.Drawing.Size(129, 154);
             this.pictureBoxPersonnage10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage10.TabIndex = 7;
             this.pictureBoxPersonnage10.TabStop = false;
@@ -302,9 +303,9 @@ namespace Memory_Game
             // pictureBoxPersonnnage9
             // 
             this.pictureBoxPersonnnage9.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnnage9.Location = new System.Drawing.Point(79, 469);
+            this.pictureBoxPersonnnage9.Location = new System.Drawing.Point(77, 436);
             this.pictureBoxPersonnnage9.Name = "pictureBoxPersonnnage9";
-            this.pictureBoxPersonnnage9.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnnage9.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnnage9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnnage9.TabIndex = 6;
             this.pictureBoxPersonnnage9.TabStop = false;
@@ -313,9 +314,9 @@ namespace Memory_Game
             // pictureBoxPersonnage6
             // 
             this.pictureBoxPersonnage6.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage6.Location = new System.Drawing.Point(244, 289);
+            this.pictureBoxPersonnage6.Location = new System.Drawing.Point(242, 256);
             this.pictureBoxPersonnage6.Name = "pictureBoxPersonnage6";
-            this.pictureBoxPersonnage6.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage6.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage6.TabIndex = 5;
             this.pictureBoxPersonnage6.TabStop = false;
@@ -324,9 +325,9 @@ namespace Memory_Game
             // pictureBoxPersonnage2
             // 
             this.pictureBoxPersonnage2.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage2.Location = new System.Drawing.Point(244, 109);
+            this.pictureBoxPersonnage2.Location = new System.Drawing.Point(242, 76);
             this.pictureBoxPersonnage2.Name = "pictureBoxPersonnage2";
-            this.pictureBoxPersonnage2.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage2.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage2.TabIndex = 4;
             this.pictureBoxPersonnage2.TabStop = false;
@@ -335,9 +336,9 @@ namespace Memory_Game
             // pictureBoxPersonnage5
             // 
             this.pictureBoxPersonnage5.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage5.Location = new System.Drawing.Point(79, 289);
+            this.pictureBoxPersonnage5.Location = new System.Drawing.Point(77, 256);
             this.pictureBoxPersonnage5.Name = "pictureBoxPersonnage5";
-            this.pictureBoxPersonnage5.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage5.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage5.TabIndex = 3;
             this.pictureBoxPersonnage5.TabStop = false;
@@ -346,9 +347,9 @@ namespace Memory_Game
             // pictureBoxPersonnage1
             // 
             this.pictureBoxPersonnage1.BackColor = System.Drawing.Color.White;
-            this.pictureBoxPersonnage1.Location = new System.Drawing.Point(79, 109);
+            this.pictureBoxPersonnage1.Location = new System.Drawing.Point(77, 76);
             this.pictureBoxPersonnage1.Name = "pictureBoxPersonnage1";
-            this.pictureBoxPersonnage1.Size = new System.Drawing.Size(159, 174);
+            this.pictureBoxPersonnage1.Size = new System.Drawing.Size(129, 153);
             this.pictureBoxPersonnage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPersonnage1.TabIndex = 2;
             this.pictureBoxPersonnage1.TabStop = false;
@@ -362,20 +363,39 @@ namespace Memory_Game
             this.buttonReprendrePartie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReprendrePartie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonReprendrePartie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReprendrePartie.Location = new System.Drawing.Point(235, 953);
+            this.buttonReprendrePartie.Location = new System.Drawing.Point(226, 885);
             this.buttonReprendrePartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonReprendrePartie.Name = "buttonReprendrePartie";
-            this.buttonReprendrePartie.Size = new System.Drawing.Size(342, 39);
+            this.buttonReprendrePartie.Size = new System.Drawing.Size(342, 36);
             this.buttonReprendrePartie.TabIndex = 114;
             this.buttonReprendrePartie.Text = "Reprendre";
             this.buttonReprendrePartie.UseVisualStyleBackColor = false;
+            this.buttonReprendrePartie.Click += new System.EventHandler(this.buttonReprendrePartie_Click);
+            // 
+            // buttonSauvegarderPartie
+            // 
+            this.buttonSauvegarderPartie.BackColor = System.Drawing.Color.OrangeRed;
+            this.buttonSauvegarderPartie.FlatAppearance.BorderSize = 0;
+            this.buttonSauvegarderPartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSauvegarderPartie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSauvegarderPartie.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSauvegarderPartie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSauvegarderPartie.Location = new System.Drawing.Point(226, 842);
+            this.buttonSauvegarderPartie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSauvegarderPartie.Name = "buttonSauvegarderPartie";
+            this.buttonSauvegarderPartie.Size = new System.Drawing.Size(342, 36);
+            this.buttonSauvegarderPartie.TabIndex = 115;
+            this.buttonSauvegarderPartie.Text = "Sauvegarder";
+            this.buttonSauvegarderPartie.UseVisualStyleBackColor = false;
+            this.buttonSauvegarderPartie.Click += new System.EventHandler(this.buttonSauvegarderPartie_Click);
             // 
             // formPartie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(793, 1003);
+            this.ClientSize = new System.Drawing.Size(785, 935);
+            this.Controls.Add(this.buttonSauvegarderPartie);
             this.Controls.Add(this.buttonReprendrePartie);
             this.Controls.Add(this.buttonDemarrerPartie);
             this.Controls.Add(this.labelJoueur2);
@@ -456,6 +476,7 @@ namespace Memory_Game
         private System.Windows.Forms.TextBox textBoxJoueur2;
         private System.Windows.Forms.Button buttonDemarrerPartie;
         private System.Windows.Forms.Button buttonReprendrePartie;
+        private System.Windows.Forms.Button buttonSauvegarderPartie;
     }
 }
 

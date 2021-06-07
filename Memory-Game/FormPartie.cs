@@ -57,6 +57,7 @@ namespace Memory_Game
             labelScoreJoueur2.Visible = false;
             labelTour.Visible = false;
             labelTemps.Visible = false;
+            buttonSauvegarderPartie.Visible = false;
 
             foreach (var picturebox in imagesPictureBoxes)
             {
@@ -234,7 +235,15 @@ namespace Memory_Game
            
         }
 
-        
+        private void buttonReprendrePartie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSauvegarderPartie_Click(object sender, EventArgs e)
+        {
+
+        }
 
         void finPartie()
         {
@@ -295,6 +304,8 @@ namespace Memory_Game
             tour.Interval = 1000;
             tour.Tick += CLICKTIMER_TICK;
             buttonDemarrerPartie.Visible = false;
+            buttonReprendrePartie.Visible = false;
+            buttonSauvegarderPartie.Visible = true;
 
             labelJoueur1.Visible = false;
             labelJoueur2.Visible = false;
