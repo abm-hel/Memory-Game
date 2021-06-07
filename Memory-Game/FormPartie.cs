@@ -311,9 +311,7 @@ namespace Memory_Game
             Object ss = Sauvegarde.Recup(nomFichierSauvegarde);
             DonneesSauvegarde recupPartie = (DonneesSauvegarde)ss;
 
-            
-            MessageBox.Show(recupPartie.nomJoueur1+"\n"+recupPartie.nomJoueur1+"\n"+recupPartie.scoreJoueur1 + "\n" +recupPartie.tempsTour.ToString());
-            
+
             foreach(PictureBox pic in imagesPictureBoxes)
             {
                 foreach(PictureBoxDonnees p in recupPartie.pictureBoxesDonnees)
@@ -333,12 +331,18 @@ namespace Memory_Game
         {
             DonneesSauvegarde sauvegarde = new DonneesSauvegarde();
             List<PictureBoxDonnees> imagesSauvegarder = new List<PictureBoxDonnees>();
-            PictureBoxDonnees picB = new PictureBoxDonnees();
-            picB.nom = pictureBoxPersonnage1.Name;
             
-            picB.image = (Image)pictureBoxPersonnage1.Tag;
-            
-            imagesSauvegarder.Add(picB);
+
+            foreach (PictureBox picB in imagesPictureBoxes)
+            {
+                if(picB.Visible == true)
+                {
+                    PictureBoxDonnees sauv = new PictureBoxDonnees();
+                    sauv.nom = picB.Name;
+                    sauv.image = (Image)picB.Tag;
+                    imagesSauvegarder.Add(sauv);
+                }
+            }
 
             sauvegarde.nomJoueur1 = textBoxJoueur1.Text;
             sauvegarde.nomJoueur2 = textBoxJoueur2.Text;
