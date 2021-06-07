@@ -358,7 +358,7 @@ namespace Memory_Game
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(793, 944);
+            this.ClientSize = new System.Drawing.Size(793, 1003);
             this.Controls.Add(this.buttonDemarrerPartie);
             this.Controls.Add(this.labelJoueur2);
             this.Controls.Add(this.textBoxJoueur2);

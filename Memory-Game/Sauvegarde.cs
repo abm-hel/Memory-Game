@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Memory_Game
 {
+    
     public class Sauvegarde
     {
         public  void Sauve(string fichier, Object objet)
