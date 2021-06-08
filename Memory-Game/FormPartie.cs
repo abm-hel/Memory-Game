@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Memory_Game
 {
@@ -59,6 +60,16 @@ namespace Memory_Game
             labelTour.Visible = false;
             labelTemps.Visible = false;
             buttonSauvegarderPartie.Visible = false;
+            buttonAnnuler.Visible = false;
+            buttonDemarrerPartie.Visible = false;
+            buttonSauvegarderPartie.Visible = false;
+
+            labelJoueur1.Visible = false;
+            labelJoueur2.Visible = false;
+            textBoxJoueur1.Visible = false;
+            textBoxJoueur2.Visible = false;
+
+
 
             foreach (var picturebox in imagesPictureBoxes)
             {
@@ -240,8 +251,10 @@ namespace Memory_Game
 
         void finPartie()
         {
-            
-            if (scoreJoueur1 > scoreJoueur2)
+            if (File.Exists(nomFichierSauvegarde))
+            File.Delete(nomFichierSauvegarde);
+
+                if (scoreJoueur1 > scoreJoueur2)
             {
                 MessageBox.Show("Bravo " + textBoxJoueur1.Text + "\ntu as gagné la partie, voici les scores: \n\n" + textBoxJoueur1.Text + " : " + scoreJoueur1 + "\n" + textBoxJoueur2.Text + " : " + scoreJoueur2);
             }
@@ -274,106 +287,172 @@ namespace Memory_Game
 
         private void buttonDemarrerPartie_Click(object sender, EventArgs e)
         {
-            foreach (var picturebox in imagesPictureBoxes)
+            if(textBoxJoueur1.Text == "" || textBoxJoueur2.Text =="")
+                MessageBox.Show("Veuillez encoder les deux pseudos");
+
+            else
             {
-                picturebox.Visible = true;
+                foreach (var picturebox in imagesPictureBoxes)
+                {
+                    picturebox.Visible = true;
+                }
+
+                labelScoreJoueur1.Visible = true;
+                labelScoreJoueur2.Visible = true;
+                labelTour.Visible = true;
+                labelTemps.Visible = true;
+
+                labelTour.Text = "Tour : " + textBoxJoueur1.Text;
+                labelScoreJoueur1.Text = textBoxJoueur1.Text + " : " + scoreJoueur1.ToString();
+                labelScoreJoueur2.Text = textBoxJoueur2.Text + " : " + scoreJoueur2.ToString();
+
+                autorisationJouer = true;
+
+                melangerAleatoireImages();
+                cacherImages();
+                demarrerTempsJeu();
+
+                tour.Interval = 1000;
+                tour.Tick += CLICKTIMER_TICK;
+                buttonDemarrerPartie.Visible = false;
+                buttonReprendrePartie.Visible = false;
+                buttonSauvegarderPartie.Visible = true;
+                buttonCommencerPartie.Visible = false;
+                buttonAnnuler.Visible = false;
+
+                labelJoueur1.Visible = false;
+                labelJoueur2.Visible = false;
+                textBoxJoueur1.Visible = false;
+                textBoxJoueur2.Visible = false;
+
+                accueil1.Visible = false;
+                accueil2.Visible = false;
+                labelAccueil.Visible = false;
+                labelCreateur.Visible = false;
             }
+         
+        }
 
-            labelScoreJoueur1.Visible = true;
-            labelScoreJoueur2.Visible = true;
-            labelTour.Visible = true;
-            labelTemps.Visible = true;
+        private void buttonCommencerPartie_Click(object sender, EventArgs e)
+        {
+            labelJoueur1.Visible = false;
+            labelJoueur2.Visible = false;
+            textBoxJoueur1.Visible = false;
+            textBoxJoueur2.Visible = false;
 
-            labelTour.Text = "Tour : " + textBoxJoueur1.Text;
-            labelScoreJoueur1.Text = textBoxJoueur1.Text + " : " + scoreJoueur1.ToString();
-            labelScoreJoueur2.Text = textBoxJoueur2.Text + " : " + scoreJoueur2.ToString();
+            buttonDemarrerPartie.Visible = true;
+            buttonAnnuler.Visible = true;
 
-            autorisationJouer = true;
-
-            melangerAleatoireImages();
-            cacherImages();
-            demarrerTempsJeu();
-
-            tour.Interval = 1000;
-            tour.Tick += CLICKTIMER_TICK;
-            buttonDemarrerPartie.Visible = false;
+            buttonCommencerPartie.Visible = false;
             buttonReprendrePartie.Visible = false;
-            buttonSauvegarderPartie.Visible = true;
+
+            labelJoueur1.Visible = true;
+            labelJoueur2.Visible = true;
+            textBoxJoueur1.Visible = true;
+            textBoxJoueur2.Visible = true;
+        }
+
+        private void buttonAnnuler_Click(object sender, EventArgs e)
+        {
+            buttonCommencerPartie.Visible = true;
+            buttonReprendrePartie.Visible = true;
+
+            buttonDemarrerPartie.Visible = false;
+            buttonAnnuler.Visible = false;
 
             labelJoueur1.Visible = false;
             labelJoueur2.Visible = false;
             textBoxJoueur1.Visible = false;
             textBoxJoueur2.Visible = false;
+
+            textBoxJoueur1.Text = "Joueur1";
+            textBoxJoueur2.Text = "Joueur2";
+
         }
 
         private void buttonReprendrePartie_Click(object sender, EventArgs e)
         {
-            Object ss = Sauvegarde.Recup(nomFichierSauvegarde);
-            DonneesSauvegarde recupPartie = (DonneesSauvegarde)ss;
 
-
-            foreach(PictureBox pic in imagesPictureBoxes)
+            if (File.Exists(nomFichierSauvegarde))
             {
-                foreach(PictureBoxDonnees p in recupPartie.pictureBoxesDonnees)
-                if(pic.Name == p.nom)
+                Object ss = Sauvegarde.Recup(nomFichierSauvegarde);
+                DonneesSauvegarde recupPartie = (DonneesSauvegarde)ss;
+
+
+                foreach (PictureBox pic in imagesPictureBoxes)
                 {
-                        pic.Tag = p.image;
-                        pic.Visible = true;
+                    foreach (PictureBoxDonnees p in recupPartie.pictureBoxesDonnees)
+                        if (pic.Name == p.nom)
+                        {
+                            pic.Tag = p.image;
+                            pic.Visible = true;
+                        }
                 }
+
+                labelScoreJoueur1.Visible = true;
+                labelScoreJoueur2.Visible = true;
+                labelTour.Visible = true;
+                labelTemps.Visible = true;
+
+                labelJoueur1.Visible = false;
+                labelJoueur2.Visible = false;
+                textBoxJoueur1.Visible = false;
+                textBoxJoueur2.Visible = false;
+
+                buttonDemarrerPartie.Visible = false;
+                buttonReprendrePartie.Visible = false;
+                buttonSauvegarderPartie.Visible = true;
+
+                textBoxJoueur1.Text = recupPartie.nomJoueur1.ToString();
+                textBoxJoueur2.Text = recupPartie.nomJoueur2.ToString();
+
+                accueil1.Visible = false;
+                accueil2.Visible = false;
+                labelAccueil.Visible = false;
+                labelCreateur.Visible = false;
+
+                labelScoreJoueur1.Text = textBoxJoueur1.Text + " : " + recupPartie.scoreJoueur1.ToString();
+                labelScoreJoueur2.Text = textBoxJoueur2.Text + " : " + recupPartie.scoreJoueur2.ToString();
+
+
+                var secondesTemps = TimeSpan.FromSeconds(recupPartie.tempsTour);
+                labelTemps.Text = secondesTemps.ToString();
+
+                if (recupPartie.identification == false)
+                {
+                    labelTour.Text = textBoxJoueur1.Text;
+                }
+                else
+                {
+                    labelTour.Text = textBoxJoueur2.Text;
+                }
+
+
+                tempsTour = recupPartie.tempsTour;
+                identificationJoueur = recupPartie.identification;
+                scoreJoueur1 = recupPartie.scoreJoueur1;
+                scoreJoueur2 = recupPartie.scoreJoueur2;
+                trouve1 = recupPartie.trouve1;
+                trouve2 = recupPartie.trouve2;
+
+                autorisationJouer = true;
+
+                cacherImages();
+                demarrerTempsJeu();
+
+                tour.Interval = 1000;
+                tour.Tick += CLICKTIMER_TICK;
+
+                buttonDemarrerPartie.Visible = false;
+                buttonReprendrePartie.Visible = false;
+                buttonSauvegarderPartie.Visible = true;
+                buttonCommencerPartie.Visible = false;
             }
 
-            labelScoreJoueur1.Visible = true;
-            labelScoreJoueur2.Visible = true;
-            labelTour.Visible = true;
-            labelTemps.Visible = true;
-
-            labelJoueur1.Visible = false;
-            labelJoueur2.Visible = false;
-            textBoxJoueur1.Visible = false;
-            textBoxJoueur2.Visible = false;
-
-            buttonDemarrerPartie.Visible = false;
-            buttonReprendrePartie.Visible = false;
-            buttonSauvegarderPartie.Visible = true;
-
-            textBoxJoueur1.Text = recupPartie.nomJoueur1.ToString();
-            textBoxJoueur2.Text = recupPartie.nomJoueur2.ToString();
-
-            labelScoreJoueur1.Text = textBoxJoueur1.Text + " : " + recupPartie.scoreJoueur1.ToString();
-            labelScoreJoueur2.Text = textBoxJoueur2.Text + " : " + recupPartie.scoreJoueur2.ToString();
-
-            
-            var secondesTemps = TimeSpan.FromSeconds(recupPartie.tempsTour);
-            labelTemps.Text = secondesTemps.ToString();
-
-            if(recupPartie.identification == false)
-            {
-                labelTour.Text = textBoxJoueur1.Text;
-            }
             else
-            {
-                labelTour.Text = textBoxJoueur2.Text;
-            }
+                MessageBox.Show("Aucune partie sauvegardée ! \nVeuillez commencer une nouvelle partie ");
 
-
-            tempsTour = recupPartie.tempsTour;
-            identificationJoueur = recupPartie.identification;
-            scoreJoueur1 = recupPartie.scoreJoueur1;
-            scoreJoueur2 = recupPartie.scoreJoueur2;
-            trouve1 = recupPartie.trouve1;
-            trouve2 = recupPartie.trouve2;
-
-            autorisationJouer = true;
-
-            cacherImages();
-            demarrerTempsJeu();
-
-            tour.Interval = 1000;
-            tour.Tick += CLICKTIMER_TICK;
-
-            buttonDemarrerPartie.Visible = false;
-            buttonReprendrePartie.Visible = false;
-            buttonSauvegarderPartie.Visible = true;
+           
         }
 
 
@@ -407,6 +486,7 @@ namespace Memory_Game
 
           
             Sauvegarde.Sauve(nomFichierSauvegarde, sauvegarde);
+            MessageBox.Show("Partie sauvegardée");
             
 
         }
