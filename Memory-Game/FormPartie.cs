@@ -357,7 +357,23 @@ namespace Memory_Game
 
 
             tempsTour = recupPartie.tempsTour;
+            identificationJoueur = recupPartie.identification;
+            scoreJoueur1 = recupPartie.scoreJoueur1;
+            scoreJoueur2 = recupPartie.scoreJoueur2;
+            trouve1 = recupPartie.trouve1;
+            trouve2 = recupPartie.trouve2;
+
+            autorisationJouer = true;
+
             cacherImages();
+            demarrerTempsJeu();
+
+            tour.Interval = 1000;
+            tour.Tick += CLICKTIMER_TICK;
+
+            buttonDemarrerPartie.Visible = false;
+            buttonReprendrePartie.Visible = false;
+            buttonSauvegarderPartie.Visible = true;
         }
 
 
@@ -385,8 +401,11 @@ namespace Memory_Game
             sauvegarde.identification = identificationJoueur;
             sauvegarde.tempsTour = tempsTour;
             sauvegarde.pictureBoxesDonnees = imagesSauvegarder;
+            sauvegarde.trouve1 = trouve1;
+            sauvegarde.trouve2 = trouve2;
 
 
+          
             Sauvegarde.Sauve(nomFichierSauvegarde, sauvegarde);
             
 
