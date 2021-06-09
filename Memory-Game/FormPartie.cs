@@ -205,11 +205,12 @@ namespace Memory_Game
                     }
                 }
                 triche = 0;
-                timerTriche.Start();
+                
                 buttonTriche.Enabled = false;
             }
             while (imagesPictureBoxes[indexTriche].Visible == false);
-           
+            timerTriche.Start();
+
         }
 
         private void timerTriche_Tick(object sender, EventArgs e)
