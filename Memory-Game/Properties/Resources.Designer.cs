@@ -93,6 +93,16 @@ namespace Memory_Game.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap image10 {
+            get {
+                object obj = ResourceManager.GetObject("image10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image2 {
             get {
                 object obj = ResourceManager.GetObject("image2", resourceCulture);
@@ -156,6 +166,16 @@ namespace Memory_Game.Properties {
         internal static System.Drawing.Bitmap image8 {
             get {
                 object obj = ResourceManager.GetObject("image8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image9 {
+            get {
+                object obj = ResourceManager.GetObject("image9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

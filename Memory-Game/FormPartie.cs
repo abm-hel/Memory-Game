@@ -19,10 +19,15 @@ namespace Memory_Game
         Random aleatoire = new Random();
         Timer tour = new Timer();
         int tempsTour = 10;
+    
         Timer timer = new Timer {Interval = 1000};
         int scoreJoueur1, scoreJoueur2 = 0;
         bool identificationJoueur = false;
         string nomFichierSauvegarde = "fSauvegarde";
+        PictureBox picTriche;
+        int indexTriche;
+        int triche = 0;
+
 
         private PictureBox[] imagesPictureBoxes
         {
@@ -42,7 +47,10 @@ namespace Memory_Game
                     Properties.Resources.image5,
                     Properties.Resources.image6,
                     Properties.Resources.image7,
-                    Properties.Resources.image8
+                    Properties.Resources.image8,
+                    Properties.Resources.image9,
+                    Properties.Resources.image10
+
                 };
             }
         }
@@ -55,6 +63,7 @@ namespace Memory_Game
 
         private void formPartie_Load(object sender, EventArgs e)
         {
+            
             labelScoreJoueur1.Visible = false;
             labelScoreJoueur2.Visible = false;
             labelTour.Visible = false;
@@ -63,11 +72,14 @@ namespace Memory_Game
             buttonAnnuler.Visible = false;
             buttonDemarrerPartie.Visible = false;
             buttonSauvegarderPartie.Visible = false;
+            buttonTriche.Visible = false;
 
             labelJoueur1.Visible = false;
             labelJoueur2.Visible = false;
             textBoxJoueur1.Visible = false;
             textBoxJoueur2.Visible = false;
+
+            
 
 
 
@@ -89,10 +101,12 @@ namespace Memory_Game
                 tempsTour--;
                 if (tempsTour < 0)
                 {
+                    buttonTriche.Enabled = true;
                     foreach (PictureBox pic in imagesPictureBoxes)
                     {
                         pic.Enabled = true;
                     }
+
                     timer.Stop();
                     //initialiserImages();
                     identificationJoueur = !identificationJoueur;
@@ -123,6 +137,7 @@ namespace Memory_Game
             {
                 image.Tag = null;
                 image.Visible = true;
+                MessageBox.Show(image.Name);
             }
             tempsTour = 10;
             
@@ -145,7 +160,6 @@ namespace Memory_Game
             do
             {
                 i = aleatoire.Next(0, imagesPictureBoxes.Count());
-                
             }
             while (imagesPictureBoxes[i].Tag != null);
             return imagesPictureBoxes[i]; 
@@ -169,19 +183,51 @@ namespace Memory_Game
                     img.Visible = false;
                 }
             }
+            buttonTriche.Enabled = true;
             trouve1 = trouve2 = "";
             cacherImages();
             autorisationJouer = true;
             tour.Stop();
         }
 
+        private void buttonTriche_Click(object sender, EventArgs e)
+        {
+            do
+            {
+                indexTriche = aleatoire.Next(0, imagesPictureBoxes.Count());
+                picTriche = imagesPictureBoxes[indexTriche];
+
+                foreach (PictureBox item in imagesPictureBoxes)
+                {
+                    if (picTriche == item)
+                    {
+                        item.Image = (Image)item.Tag;
+                    }
+                }
+                triche = 0;
+                timerTriche.Start();
+                buttonTriche.Enabled = false;
+            }
+            while (imagesPictureBoxes[indexTriche].Visible == false);
+           
+        }
+
+        private void timerTriche_Tick(object sender, EventArgs e)
+        {
+            if(triche==0)
+            {
+                cacherImages();
+                triche++;
+            }
+        }
+
         private void selectionnerImage_Click(object sender, EventArgs e)
         {
-        
+            
 
             if (!autorisationJouer) 
                 return;
-
+            
             PictureBox image = (PictureBox)sender;
             image.Enabled = false;
             
@@ -189,14 +235,22 @@ namespace Memory_Game
            if (premierChoix == null)
             {
                 premierChoix = image;
-                
+                buttonTriche.Enabled = false;
                 image.Image = (Image)image.Tag;
                 return;
             }
             
+
+
+
+
+
+
             image.Image = (Image)image.Tag;
             
-
+            
+            
+            
             
             if (image.Image == premierChoix.Image && image!=premierChoix)
             {
@@ -218,8 +272,10 @@ namespace Memory_Game
                 labelScoreJoueur1.Text = textBoxJoueur1.Text + " : " + scoreJoueur1.ToString();
                 labelScoreJoueur2.Text = textBoxJoueur2.Text +" : " + scoreJoueur2.ToString();
                 tour.Start();
+                //buttonTriche.Enabled = true;
+                timerTriche.Stop();
 
-               
+
                 image.Visible = premierChoix.Visible = false;
                 premierChoix = image;
 
@@ -230,6 +286,8 @@ namespace Memory_Game
             {
                 autorisationJouer = false;
                 tour.Start();
+                //buttonTriche.Enabled = true;
+                timerTriche.Stop();
                 premierChoix.Enabled = true;
                 tempsTour = 0;
                 
@@ -240,7 +298,11 @@ namespace Memory_Game
 
             if (imagesPictureBoxes.Any(i=>i.Visible))
             {
+                //buttonTriche.Enabled = true;
+                timerTriche.Stop();
+                tour.Start();
                 return;
+
             }
 
             finPartie(); 
@@ -310,13 +372,16 @@ namespace Memory_Game
 
                 melangerAleatoireImages();
                 cacherImages();
+                
                 demarrerTempsJeu();
+               
 
                 tour.Interval = 1000;
                 tour.Tick += CLICKTIMER_TICK;
                 buttonDemarrerPartie.Visible = false;
                 buttonReprendrePartie.Visible = false;
                 buttonSauvegarderPartie.Visible = true;
+                buttonTriche.Visible = true;
                 buttonCommencerPartie.Visible = false;
                 buttonAnnuler.Visible = false;
 
@@ -339,6 +404,7 @@ namespace Memory_Game
             labelJoueur2.Visible = false;
             textBoxJoueur1.Visible = false;
             textBoxJoueur2.Visible = false;
+            
 
             buttonDemarrerPartie.Visible = true;
             buttonAnnuler.Visible = true;
@@ -369,6 +435,8 @@ namespace Memory_Game
             textBoxJoueur2.Text = "Joueur2";
 
         }
+
+      
 
         private void buttonReprendrePartie_Click(object sender, EventArgs e)
         {
@@ -402,6 +470,7 @@ namespace Memory_Game
                 buttonDemarrerPartie.Visible = false;
                 buttonReprendrePartie.Visible = false;
                 buttonSauvegarderPartie.Visible = true;
+                buttonTriche.Visible = true;
 
                 textBoxJoueur1.Text = recupPartie.nomJoueur1.ToString();
                 textBoxJoueur2.Text = recupPartie.nomJoueur2.ToString();
